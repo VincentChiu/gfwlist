@@ -13,9 +13,7 @@ var ipv6_proxy = function(){ return nowall_proxy(); };
  * https://github.com/breakwa11/gfw_whitelist
  */
 
-var rules = [
-	__RULES__
-];
+var rules = __RULES__;
 
 /*
 * This file is part of Adblock Plus <http://adblockplus.org/>,
