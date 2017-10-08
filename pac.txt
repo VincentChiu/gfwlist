@@ -1,4 +1,4 @@
-
+               
 var direct = "__DIRECT__";
 if (direct == "__DIR" + "ECT__") direct = "DIRECT;";
 
@@ -10,7 +10,6 @@ var ip_proxy = function(){ return nowall_proxy(); };
 var ipv6_proxy = function(){ return nowall_proxy(); };
 
 var rules = __RULES__;
-
 
 function createDict()
 {
@@ -818,5 +817,4 @@ function FindProxyForURL(url, host) {
 	}
 	return direct;
 }
-
 
