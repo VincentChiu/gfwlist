@@ -1,4 +1,4 @@
-﻿var direct = "__DIRECT__";
+var direct = "__DIRECT__";
 if (direct == "__DIR" + "ECT__") direct = "DIRECT;";
 
 var wall_proxy = function(){ return "__PROXY__"; };
@@ -830,11 +830,11 @@ function FindProxyForURL(url, host) {
 	if ( isPlainHostName(host) === true ) {
 		return direct;
 	}
-	if (defaultMatcher.matchesAny(url, host) instanceof BlockingFilter) {
-		return wall_proxy();
-	}
 	if ( check_ipv4(host) === true ) {
 		return getProxyFromIP(host);
+	}
+	if (defaultMatcher.matchesAny(url, host) instanceof BlockingFilter) {
+		return wall_proxy();
 	}
 	return direct;
 }
