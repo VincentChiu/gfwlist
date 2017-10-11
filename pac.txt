@@ -1,5 +1,4 @@
-               
-var direct = "__DIRECT__";
+﻿var direct = "__DIRECT__";
 if (direct == "__DIR" + "ECT__") direct = "DIRECT;";
 
 var wall_proxy = function(){ return "__PROXY__"; };
@@ -9,7 +8,29 @@ var nowall_proxy = function(){ return direct; };
 var ip_proxy = function(){ return nowall_proxy(); };
 var ipv6_proxy = function(){ return nowall_proxy(); };
 
+/*
+ * Copyright (C) 2014 breakwa11
+ * https://github.com/breakwa11/gfw_whitelist
+ */
+
 var rules = __RULES__;
+
+/*
+* This file is part of Adblock Plus <http://adblockplus.org/>,
+* Copyright (C) 2006-2014 Eyeo GmbH
+*
+* Adblock Plus is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License version 3 as
+* published by the Free Software Foundation.
+*
+* Adblock Plus is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Adblock Plus.	If not, see <http://www.gnu.org/licenses/>.
+*/
 
 function createDict()
 {
@@ -809,11 +830,11 @@ function FindProxyForURL(url, host) {
 	if ( isPlainHostName(host) === true ) {
 		return direct;
 	}
-	if ( check_ipv4(host) === true ) {
-		return getProxyFromIP(host);
-	}
 	if (defaultMatcher.matchesAny(url, host) instanceof BlockingFilter) {
 		return wall_proxy();
+	}
+	if ( check_ipv4(host) === true ) {
+		return getProxyFromIP(host);
 	}
 	return direct;
 }
